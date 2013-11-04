@@ -1,0 +1,57 @@
+<?php
+
+
+return <<< HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cross-platform redis desktop manager - desktop management GUI for mac os x, windows, debian and ubuntu.">
+    <meta name="keywords" content="redis, gui, mac os x, windows, ubuntu, admin, panel, desktop, application">
+    <meta name="author" content="Igor Malinovskiy">
+    <link rel="shortcut icon" href="/css/favicon.png">
+
+    <title>{$title}</title>
+
+    <link href="/css/bootstrap_sl.min.css" rel="stylesheet">
+    <link href="/css/justified-nav.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-45065665-1']);
+      _gaq.push(['_setDomainName', 'redisdesktop.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right site-nav-main">
+          <li><a href="/download">Download</a></li>
+          <!--<li><a href="http://groups.google.com/group/redisdesktop">Ask question</a></li>-->
+          <li><a target="_blank" rel="nofollow" href="https://github.com/uglide/RedisDesktopManager/wiki/Documentation">Documentation</a></li>
+          <li><a target="_blank" rel="nofollow" href="https://github.com/uglide/RedisDesktopManager">Project on Github</a></li>
+          <li><a target="_blank" rel="nofollow" style="color: #D82C22" href="https://github.com/uglide/RedisDesktopManager/issues">Report issue</a></li>
+        </ul>
+        <a class="logo"  href="/">Redis Desktop Manager</a>
+        <div class="clear-fix"></div>
+      </div>
+      {$content}
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; <a href="http://glide.name/">Igor Malinovskiy</a></p>
+        <p style="font-size: 10px"> Windows is a registered trademark of Microsoft Corporation in the United States and other countries.</p>
+      </div>
+    </div>
+  </body>
+</html>
+HTML;

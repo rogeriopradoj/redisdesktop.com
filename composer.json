@@ -1,0 +1,7 @@
+{
+    "require": {
+        "silex/silex":          "1.*",
+        "knplabs/github-api":   "1.*",
+        "predis/predis":        "0.8.*"
+    }
+}

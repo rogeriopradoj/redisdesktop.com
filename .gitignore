@@ -1,0 +1,4 @@
+.idea/*
+vendor/*
+rdm.json
+composer.phar

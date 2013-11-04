@@ -1,0 +1,184 @@
+div.container {
+    min-width: 720px;
+}
+
+div#social-buttons {
+
+}
+
+ul#platforms {
+    list-style: none;
+    font-size: 22px;
+    margin-top: 20px;
+    height: 40px;
+    overflow: visible;
+}
+ul#platforms li {
+    display: inline-block;
+    height: 40px;
+    margin-right: 5px;
+
+}
+#debian, #ubuntu, #windows, #osx {
+    padding-left: 40px;
+}
+
+#debian {
+    background: url('/img/debi.png') no-repeat top left;
+}
+
+#ubuntu {
+    background: url('/img/ubu.png') no-repeat top left;
+}
+
+#windows {
+    background: url('/img/win.png') no-repeat top left;
+}
+
+#osx {
+    background: url('/img/osx.png') no-repeat top left;
+}
+
+.container .jumbotron {
+    margin-bottom: 10px;
+    text-align: right;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.jumbotron h1 {
+    color: #d82c22;
+    margin-top: 43px;
+    text-shadow: 1px 1px 5px #ffffff, 0 0 30px #ffffff;
+    font-size: 50px;
+}
+
+.jumbotron p.lead {
+    margin-top: 12px;
+    color: #565656;
+}
+
+.demo-main {
+    background: url('/img/bg-redis-desktop-manager.png') no-repeat top left;
+    border-radius: 0;
+}
+
+h3 {
+    margin-top: 10px;
+}
+
+.panel-heading, .panel-body {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.panel-body {
+    vertical-align: middle;
+}
+a.logo {
+    background: url('/img/logo.png') no-repeat top left;
+    display: block;
+    height: 84px;
+    padding-left: 100px;
+    line-height: 60px;
+    text-decoration: none;
+    color: #565656;
+    font-size: 25px;
+
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+ul.site-nav-main {
+    margin-top: 15px;
+}
+
+.features {
+    padding-top: 15px;
+}
+
+.features .row {
+    margin-bottom: 20px;
+}
+
+.app-screen {
+    margin: 15px auto;
+}
+
+.features .row .thumbnail {
+    border-radius: 0;
+    width: 30%;
+    text-align: center;
+}
+
+.features .row .thumbnail + .thumbnail {
+    margin-left: 5%;
+}
+
+.main-demo-container {
+    background-color: #f5f5f5;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    margin: 25px 0;
+    width: 100% !important;
+}
+
+@media all and (max-width: 1024px) {
+    a.logo {
+        font-size: 17px;
+    }
+
+    .demo-main {
+        background-size: 100%;
+        background-position: 1px 1px !important;
+    }
+
+    .jumbotron {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .jumbotron h1 {
+        font-size: 20px;
+        margin-top: 0;
+    }
+
+    .jumbotron .lead, .jumbotron h3, .jumbotron a.btn-lg {
+        font-size: 17px;
+    }
+
+    ul#platforms li {
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+    }
+
+    ul#platforms span {
+        padding: 0;
+        vertical-align: top;
+    }
+
+    .features .row .thumbnail {
+        width: 100%;
+        margin-left: 0!important;
+        margin-bottom: 15px;
+    }
+
+    .features .row {
+        margin-bottom: 0;
+    }
+
+    .nav > li > a {
+        padding: 8px 3px;
+    }
+
+}
+
+@media all and (max-width: 1200px) {
+    .demo-main {
+        background-position: -170px 0;
+    }
+}
+
+

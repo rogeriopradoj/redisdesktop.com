@@ -1,0 +1,114 @@
+<?php
+/**
+ * todo: description
+ *
+ * @author Igor Malinovskiy <glide.name>
+ * @file main.phtml
+ * @date: 9/26/13
+ */
+
+return <<< HTML
+
+    <div class="demo-main">
+      <div class="jumbotron">
+        <h1>Redis Desktop Manager</h1>
+        <p class="lead">Open source GUI management tool for Redis</p>
+        <p>
+            <a class="btn btn-lg btn-success" href="/download">Download v.{$rdmData["version"]}</a>
+        </p>
+        <h3>Like Redis Desktop Manager?</h3>
+        <div id="social-buttons">
+            <iframe src="http://ghbtns.com/github-btn.html?user=uglide&repo=RedisDesktopManager&type=watch&size=large&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="150" height="30"></iframe>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="col-lg-8" class="lead">
+         <ul id="platforms">
+            <span style="display: inline-block; margin-right:  15px;">Available for:</span>
+            <li id="windows">Windows</li>
+            <li id="debian">Debian</li>
+            <li id="ubuntu">Ubuntu</li>
+            <li id="osx">Mac OS X</li>
+            </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="main-demo-container" >
+      <div class="container features">
+
+          <h3>Key Features</h3>
+
+          <div class="row">
+            <div class="col-md-4 thumbnail">
+                <img src="/img/features/always-at-hand.png" />
+                <div class="caption">
+                    <h4>Always at hand</h4>
+                    Redis Desktop Manager is a desktop application available for most popular platforms.
+                </div>
+            </div>
+            <div class="col-md-4 thumbnail">
+                <img src="/img/features/ssh.png" />
+                <div class="caption">
+                    <h4>SSH tunnel support</h4>
+                    Connect to the Redis directly or via SSH tunnel
+                </div>
+            </div>
+            <div class="col-md-4 thumbnail">
+                <img  src="/img/features/tree-view.png" />
+                <div class="caption">
+                    <h4>Tree view with databases auto detection </h4>
+                    View a list of all keys and switch between databases with one click.
+                </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-4 thumbnail">
+                <img src="/img/features/view.png" />
+                <div class="caption">
+                    <h4>View key values</h4>
+                    Key list from chosen database.
+                </div>
+            </div>
+            <div class="col-md-4 thumbnail">
+                <img  src="/img/features/console.png" />
+                <div class="caption">
+                    <h4>Redis Console</h4>
+                    Run commands easily on any remote or local redis server
+                </div>
+            </div>
+            <div class="col-md-4 thumbnail">
+                <img  src="/img/features/key-search.png" />
+                <div class="caption">
+                    <h4>Local key search</h4>
+                    Search keys locally without adding load on Redis
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 thumbnail">
+                <img  src="/img/features/server-info.png" />
+                <div class="caption">
+                    <h4>Config Information</h4>
+                    View configuration information from your Redis server
+                </div>
+            </div>
+          </div>
+
+
+
+      </div>
+      </div>
+
+      <div class="container">
+        <img class="thumbnail app-screen" src="/img/features/all.png" />
+
+HTML;
