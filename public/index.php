@@ -24,6 +24,7 @@ $app = new Silex\Application();
 $app->get('/', function () use ($rdmData) {
 
     $title = "Redis Desktop Manager - Redis GUI management tool for Windows, Mac OS X, Ubuntu and Debian.";
+    $description = "Cross-platform redis desktop manager - desktop management GUI for mac os x, windows, debian and ubuntu.";
 
     $content = require APP_PATH . '/views/main.phtml';
     $layout = require APP_PATH . '/views/layout.phtml';
@@ -34,8 +35,21 @@ $app->get('/', function () use ($rdmData) {
 $app->get('/download', function () use ($rdmData) {
 
     $title = "Download Redis Desktop Manager";
+    $description = "Download Redis Desktop Manager for mac os x, windows, debian and ubuntu.";
 
     $content =  require APP_PATH . '/views/download.phtml';
+    $layout = require APP_PATH . '/views/layout.phtml';
+
+    return $layout;
+});
+
+$app->get('/contribute', function () use ($rdmData) {
+
+    $title = "Contribute to Redis Desktop Manager";
+    $description = "Contribute to Redis Desktop Manager";
+
+    $content =  require APP_PATH . '/views/contribute.phtml';
+
     $layout = require APP_PATH . '/views/layout.phtml';
 
     return $layout;
