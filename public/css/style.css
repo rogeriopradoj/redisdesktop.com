@@ -70,7 +70,6 @@ ul#platforms li {
 .container .jumbotron {
     margin-bottom: 10px;
     text-align: right;
-    background-color: rgba(255, 255, 255, 0.2);
     padding-right: 30px;
     padding-left: 30px;
 }
@@ -123,7 +122,8 @@ ul.site-nav-main {
 }
 
 .features {
-    padding-top: 15px;
+    padding-top: 35px;
+    padding-bottom: 35px;
 }
 
 .features .row {
@@ -136,12 +136,13 @@ ul.site-nav-main {
 
 .features .row .thumbnail {
     border-radius: 0;
-    width: 30%;
     text-align: center;
+    width: 24%;
+    min-height: 270px;
 }
 
 .features .row .thumbnail + .thumbnail {
-    margin-left: 5%;
+    margin-left: 1%;
 }
 
 .main-demo-container {
@@ -150,6 +151,13 @@ ul.site-nav-main {
     border-bottom: 1px solid #eeeeee;
     margin: 25px 0;
     width: 100% !important;
+}
+
+.about {
+    font-size: 13pt;
+    line-height: 22pt;
+    text-shadow: 1px 1px 1px #efefef;
+    text-align: justify;
 }
 
 @media all and (max-width: 1024px) {
@@ -203,13 +211,25 @@ ul.site-nav-main {
 
 }
 
+.contribute {
+    vertical-align: middle;
+    text-align: center;
+}
+
 @media all and (max-width: 1200px) {
     .demo-main {
         background-position: -170px 0;
     }
 }
 
-.btn-contribute {
-    display: inline-block;
-    margin-top: -18px;
+
+iframe.twitter-follow-button {
+    max-width: 170px!important;
+}
+iframe.twitter-share-button {
+    max-width: 110px!important;
+}
+
+#disqus_thread {
+    margin-top: 25px;
 }

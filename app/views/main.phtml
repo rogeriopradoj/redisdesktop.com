@@ -18,11 +18,13 @@ return <<< HTML
         </p>
         <h3>Like Redis Desktop Manager?</h3>
         <div id="social-buttons">
-            <iframe src="http://ghbtns.com/github-btn.html?user=uglide&repo=RedisDesktopManager&type=watch&size=large&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="150" height="30"></iframe>
+            <iframe src="http://ghbtns.com/github-btn.html?user=uglide&repo=RedisDesktopManager&type=watch&size=large&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="120" height="30"></iframe>
             <a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-            <a href="/contribute" class="btn btn-sm btn-primary btn-contribute">Contribute!</a>
+            <a href="https://twitter.com/RedisDesktop" class="twitter-follow-button" data-show-count="true" data-lang="en" data-size="large" data-show-screen-name="false">Follow</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
         </div>
       </div>
     </div>
@@ -37,8 +39,14 @@ return <<< HTML
             <li id="osx">Mac OS X</li>
             </ul>
         </div>
-      </div>
+        <div class="col-lg-4 contribute">
+            Do you need new feature? <br />
+            <a href="https://www.bountysource.com/trackers/281529-redis-desktop-manager" target="_blank"  class="btn btn-success">Vote & Donate</a>
+            or
+            <a href="/contribute" class="btn btn-default">Contribute</a>
 
+        </div>
+      </div>
     </div>
 
     <div class="main-demo-container" >
@@ -47,46 +55,59 @@ return <<< HTML
           <h3>Key Features</h3>
 
           <div class="row">
-            <div class="col-md-4 thumbnail">
+            <div class="col-md-3 thumbnail">
                 <img src="/img/features/always-at-hand.png" />
                 <div class="caption">
                     <h4>Always at hand</h4>
-                    Redis Desktop Manager is a desktop application available for most popular platforms.
+                    Redis Desktop Manager is a GUI app available for most popular platforms.
                 </div>
             </div>
-            <div class="col-md-4 thumbnail">
+            <div class="col-md-3 thumbnail">
+                <img src="/img/features/bigdata.png" />
+                <div class="caption">
+                    <h4>Works with BIG databases</h4>
+                    Do you have over 1 Million keys in redis? It's not a problem.
+                </div>
+            </div>
+            <div class="col-md-3 thumbnail">
                 <img src="/img/features/ssh.png" />
                 <div class="caption">
                     <h4>SSH tunnel support</h4>
                     Connect to the Redis directly or via SSH tunnel
                 </div>
             </div>
-            <div class="col-md-4 thumbnail">
+            <div class="col-md-3 thumbnail">
+                <img src="/img/features/clouds.png" />
+                <div class="caption">
+                    <h4>Clouds ready!</h4>
+                   Redis Desktop Manager works with redis clouds
+                </div>
+            </div>
+
+         </div>
+         <div class="row" id="more-features">
+            <div class="col-md-3 thumbnail">
                 <img  src="/img/features/tree-view.png" />
                 <div class="caption">
-                    <h4>Tree view with databases auto detection </h4>
+                    <h4>Tree view </h4>
                     View a list of all keys and switch between databases with one click.
                 </div>
             </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col-md-4 thumbnail">
+            <div class="col-md-3 thumbnail">
                 <img src="/img/features/view.png" />
                 <div class="caption">
                     <h4>View key values</h4>
-                    Key list from chosen database.
+                    View any value from chosen database.
                 </div>
             </div>
-            <div class="col-md-4 thumbnail">
+            <div class="col-md-3 thumbnail">
                 <img  src="/img/features/console.png" />
                 <div class="caption">
                     <h4>Redis Console</h4>
                     Run commands easily on any remote or local redis server
                 </div>
             </div>
-            <div class="col-md-4 thumbnail">
+            <div class="col-md-3 thumbnail">
                 <img  src="/img/features/key-search.png" />
                 <div class="caption">
                     <h4>Local key search</h4>
@@ -95,23 +116,33 @@ return <<< HTML
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-6 thumbnail">
-                <img  src="/img/features/server-info.png" />
-                <div class="caption">
-                    <h4>Config Information</h4>
-                    View configuration information from your Redis server
-                </div>
-            </div>
-          </div>
-
-
-
       </div>
       </div>
 
       <div class="container">
-        <img class="thumbnail app-screen" src="/img/features/all.png" />
+
+      <div class="row about">
+        <div class="col-lg-6">
+        <h3>About</h3>
+
+        <p>Redis Desktop Manager (aka RDM)— is a  cross-platform open source Redis DB management tool (i.e. Admin GUI). Redis Desktop Manager developed to replace a hundreds of slow and ugly tools for redis.</p>
+        <p></p>
+        <p>This is an early beta version of Redis Desktop Manager, that we are publishing in a hope to validate usefulness of application. We really welcome your feedback! Please submit any issues and proposals to
+        <a href="https://github.com/uglide/RedisDesktopManager/issues" rel="nofollow" target="_blank">GitHub</a>. </p>
+
+        <br />
+
+        <h4>Credits</h4>
+        Redis Desktop Manager would not be possible without great open-source projects:
+        Redis, Qt, Qxt, libssh2
+        </ul>
+
+        </div>
+        <div class="col-lg-6">
+            <img class="thumbnail app-screen" src="/img/features/all.png" />
+        </div>
+      </div>
+
 
 
 HTML;
