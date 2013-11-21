@@ -31,7 +31,26 @@ div.container {
 }
 
 div#social-buttons {
+    margin-top: 15px;
+    padding: 5px 35px;
+    vertical-align: top;
+    min-height: 50px;
+}
 
+div#social-buttons > span {
+    font-size: 15pt;
+    display: inline-block;
+    min-height: 50px;
+    margin-right: 15px;
+}
+
+div#social-buttons iframe {
+    vertical-align: top;
+}
+
+div.fb-like {
+    position: inherit!important;
+    display: inline-block!important;
 }
 
 ul#platforms {
@@ -134,12 +153,21 @@ ul.site-nav-main {
 }
 
 .features {
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .features .row {
     margin-bottom: 20px;
+}
+
+.more-features {
+    text-align: center;
+    padding: 80px 40px;
+}
+
+.more-features b {
+    font-size: 17pt;
 }
 
 .app-screen {
