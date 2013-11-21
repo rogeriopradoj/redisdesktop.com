@@ -8,71 +8,70 @@
  */
 
 
-$baseName = function ($path) {return basename($path);};
+$baseName = function ($path) {
+    return basename($path);
+};
 
 return <<< HTML
     <div class="page-header">
       <h1>Download Redis Desktop Manager <small>version {$rdmData["version"]}</small></h1>
     </div>
-
     <div class="row">
-
         <div class="col-md-6">
             <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3><span id="windows">Windows</span></h3>
-        </div>
-        <div class="panel-body">
-            <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["windows"]}">
-                Download Installer
-            </a>
-            <p><b>Supported Windows versions:</b>  <br />  XP, Vista, 7, 8, 8.1 </p>
-        </div>
-    </div>
+                <div class="panel-heading">
+                    <h3><span id="ubuntu">Ubuntu</span></h3>
+                </div>
+                <div class="panel-body">
+                    <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["ubu"]}">
+                        Download package
+                    </a>
+                    <p><b>Supported Ubuntu versions:</b> 12, 13</p>
+                </div>
+            </div>
         </div>
         <div class="col-md-6">
             <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3><span id="osx">Mac OS X</span></h3>
-        </div>
-        <div class="panel-body">
-            <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["osx"]}">
-                Download installer
-            </a>
-            <p><b>Supported Mac OS X versions:</b> <br /> 10.9</p>
-        </div>
-    </div>
-        </div>
-    </div>
-<div class="row">
-<div class="col-md-6">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3><span id="ubuntu">Ubuntu</span></h3>
-        </div>
-        <div class="panel-body">
-            <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["ubu"]}">
-                Download package
-            </a>
-            <p><b>Supported Ubuntu versions:</b> 12, 13</p>
+                <div class="panel-heading">
+                    <h3><span id="debian">Debian</span></h3>
+                </div>
+                <div class="panel-body">
+                    <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["debi"]}">
+                        Download package
+                    </a>
+                    <p><b>Supported Debian versions:</b> 7</p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="col-md-6">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3><span id="debian">Debian</span></h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3><span id="windows">Windows</span></h3>
+                </div>
+                <div class="panel-body">
+                    <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["windows"]}">
+                        Download Installer
+                    </a>
+                    <p><b>Supported Windows versions:</b>  <br />  XP, Vista, 7, 8, 8.1 </p>
+                </div>
+            </div>
         </div>
-        <div class="panel-body">
-            <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["debi"]}">
-                Download package
-            </a>
-            <p><b>Supported Debian versions:</b> 7</p>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3><span id="osx">Mac OS X</span></h3>
+                </div>
+                <div class="panel-body">
+                    <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["osx"]}">
+                        Download installer
+                    </a>
+                <p><b>Supported Mac OS X versions:</b> <br /> 10.9</p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
-
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3> Source Code</h3>
@@ -81,7 +80,6 @@ return <<< HTML
             <a class="btn btn-success btn-large pull-right" rel="nofollow"  href="https://github.com/uglide/RedisDesktopManager">View Source</a>
             <p>
                 All Source code available on GitHub
-
             </p>
         </div>
     </div>
