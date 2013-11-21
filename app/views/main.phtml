@@ -7,14 +7,41 @@
  * @date: 9/26/13
  */
 
-return <<< HTML
+$links = json_encode($rdmData['download']);
 
+return <<< HTML
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var links = {$links};
+            var link  = '';
+            var OSName = 'unknown';
+
+            if (navigator.appVersion.indexOf('Win')!=-1) {
+                OSName='Windows';
+                link = links.windows;
+            }
+
+            if (navigator.appVersion.indexOf('Mac')!=-1) {
+                OSName='MacOS';
+                link = links.osx;
+            }
+
+            if (OSName !== 'unknown') {
+                $('.more-link').css('display', 'block');
+                $('#platform-name').text(' for ' + OSName);
+                $('#btn-download').attr('href', link);
+            }
+        });
+    </script>
     <div class="demo-main">
       <div class="jumbotron">
         <h1>Redis Desktop Manager</h1>
         <p class="lead">Open source GUI management tool for Redis</p>
         <p>
-            <a class="btn btn-lg btn-success" href="/download">Download v.{$rdmData["version"]}</a>
+            <a id="btn-download" class="btn btn-lg btn-success" href="/download">Download v.{$rdmData["version"]} <span id="platform-name"></span></a>
+            <br>
+            <a href="/download" class="more-link">all supported platforms &#x00bb;</a>
         </p>
         <h3>Like Redis Desktop Manager?</h3>
         <div id="social-buttons">

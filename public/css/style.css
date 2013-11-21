@@ -117,6 +117,18 @@ a.logo {
     border-bottom: 1px solid #eeeeee;
 }
 
+a.more-link {
+    color: #24035F;
+    font-size: 15px;
+    margin-right: 8px;
+    display: none;
+    text-decoration: none;
+}
+
+a.more-link:hover {
+    color: #1552b3;
+}
+
 ul.site-nav-main {
     margin-top: 15px;
 }
