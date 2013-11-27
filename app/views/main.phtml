@@ -7,30 +7,24 @@
  * @date: 9/26/13
  */
 
-/**
- * @param array $issues
- * @return array
- */
-function extractUsersFromGithubIssues(Array $issues)
-{
-    $users = array();
-    foreach ($issues as $issue) {
-        $users[] = $issue['user'];
-    }
 
-    return $users;
-}
+/**
+ * @var $allContributors
+ */
+
 
 /**
  * @param array $users
- * @param $alreadyRenderedUsers
  * @return string
  */
-function renderGithubUsers(Array $users, &$alreadyRenderedUsers)
+function renderGithubUsers(Array $users)
 {
     $html = '';
+
+    $alreadyRenderedUsers = array();
+
     foreach ($users as $user) {
-        if (!in_array($user['login'], $alreadyRenderedUsers) && $user['login'] !== 'uglide') {
+        if (!in_array($user['login'], $alreadyRenderedUsers)) {
             $alreadyRenderedUsers[] = $user['login'];
             $html .= '<a href="' .$user['html_url'] . '" target="_blank" title="' . $user['login'] . '" class="contributors-link"><img src="' . $user['avatar_url'] . '" width="75px"></a>';
         }
@@ -41,34 +35,10 @@ function renderGithubUsers(Array $users, &$alreadyRenderedUsers)
 
 $links = json_encode($rdmData['download']);
 
-$renderedContributors = array();
-
-$client = new Github\Client(
-    new Github\HttpClient\CachedHttpClient(array('cache_dir' => APP_PATH . '/cache/github-api-cache'))
-);
-
-/**
- * get users that contribute to code and create issues
- */
-$closedIssues = $client->api('issue')->all('uglide', 'RedisDesktopManager', array('state' => 'closed'));
-$openedIssues = $client->api('issue')->all('uglide', 'RedisDesktopManager', array('state' => 'open'));
-$contributors = $client->api('repo')->contributors('uglide', 'RedisDesktopManager');
-
 /**
  * render contributors
  */
-$contributorsHTML = renderGithubUsers(
-                        $contributors,
-                        $renderedContributors
-                    ) .
-                    renderGithubUsers(
-                        extractUsersFromGithubIssues($openedIssues),
-                        $renderedContributors
-                    ) .
-                    renderGithubUsers(
-                        extractUsersFromGithubIssues($closedIssues),
-                        $renderedContributors
-                    );
+$contributorsHTML = renderGithubUsers($allContributors);
 
 return <<< HTML
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -228,9 +198,9 @@ return <<< HTML
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" style="margin-top: 25px;">
         <div class="col-lg-12">
-            <h4>Contributors</h4>
+            <h4>Our amazing contributors</h4>
             {$contributorsHTML}
         </div>
       </div>
