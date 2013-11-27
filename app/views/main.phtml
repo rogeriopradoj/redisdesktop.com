@@ -7,7 +7,38 @@
  * @date: 9/26/13
  */
 
+
+/**
+ * @var $allContributors
+ */
+
+
+/**
+ * @param array $users
+ * @return string
+ */
+function renderGithubUsers(Array $users)
+{
+    $html = '';
+
+    $alreadyRenderedUsers = array();
+
+    foreach ($users as $user) {
+        if (!in_array($user['login'], $alreadyRenderedUsers)) {
+            $alreadyRenderedUsers[] = $user['login'];
+            $html .= '<a href="' .$user['html_url'] . '" target="_blank" title="' . $user['login'] . '" class="contributors-link"><img src="' . $user['avatar_url'] . '" width="75px"></a>';
+        }
+    }
+
+    return $html;
+}
+
 $links = json_encode($rdmData['download']);
+
+/**
+ * render contributors
+ */
+$contributorsHTML = renderGithubUsers($allContributors);
 
 return <<< HTML
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -164,6 +195,13 @@ return <<< HTML
             <h4>Credits</h4>
             Redis Desktop Manager would not be possible without great open-source projects:
             Redis, Qt, Qxt, libssh2, jsoncpp
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 25px;">
+        <div class="col-lg-12">
+            <h4>Our amazing contributors</h4>
+            {$contributorsHTML}
         </div>
       </div>
 
