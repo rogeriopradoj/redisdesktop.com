@@ -59,7 +59,7 @@ return function () use ($rdmData, $app) {
         $allContributors = $app['cache']->fetch('allContributors');
     } else {
         $allContributors = getAllContributors();
-        $app['cache']->save('allContributors', $allContributors);
+        $app['cache']->save('allContributors', $allContributors, 1000);
     }
 
     $content = require APP_PATH . '/views/main.phtml';
