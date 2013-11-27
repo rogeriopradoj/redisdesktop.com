@@ -200,6 +200,17 @@ ul.site-nav-main {
     text-align: justify;
 }
 
+a.contributors-link {
+    margin-right: 5px;
+
+}
+.contributors-link img {
+    border: 1px #dddddd solid;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+
 @media all and (max-width: 1024px) {
     a.logo {
         font-size: 17px;

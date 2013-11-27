@@ -6,5 +6,6 @@
         "debi"    : "",
         "ubu"     : "",
         "osx"     : ""
-    }
+    },
+    "debug": false
 }

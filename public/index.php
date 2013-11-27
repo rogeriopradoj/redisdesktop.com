@@ -20,6 +20,11 @@ $rdmData = json_decode(file_get_contents(APP_PATH . '/data/rdm.json'), true);
 
 $app = new Silex\Application();
 
+/**
+ * set silex debug mode
+ */
+$app['debug'] = $rdmData['debug'];
+
 //main page
 $app->get('/', function () use ($rdmData) {
 

@@ -7,7 +7,68 @@
  * @date: 9/26/13
  */
 
+/**
+ * @param array $issues
+ * @return array
+ */
+function extractUsersFromGithubIssues(Array $issues)
+{
+    $users = array();
+    foreach ($issues as $issue) {
+        $users[] = $issue['user'];
+    }
+
+    return $users;
+}
+
+/**
+ * @param array $users
+ * @param $alreadyRenderedUsers
+ * @return string
+ */
+function renderGithubUsers(Array $users, &$alreadyRenderedUsers)
+{
+    $html = '';
+    foreach ($users as $user) {
+        if (!in_array($user['login'], $alreadyRenderedUsers) && $user['login'] !== 'uglide') {
+            $alreadyRenderedUsers[] = $user['login'];
+            $html .= '<a href="' .$user['html_url'] . '" target="_blank" title="' . $user['login'] . '" class="contributors-link"><img src="' . $user['avatar_url'] . '" width="75px"></a>';
+        }
+    }
+
+    return $html;
+}
+
 $links = json_encode($rdmData['download']);
+
+$renderedContributors = array();
+
+$client = new Github\Client(
+    new Github\HttpClient\CachedHttpClient(array('cache_dir' => APP_PATH . '/cache/github-api-cache'))
+);
+
+/**
+ * get users that contribute to code and create issues
+ */
+$closedIssues = $client->api('issue')->all('uglide', 'RedisDesktopManager', array('state' => 'closed'));
+$openedIssues = $client->api('issue')->all('uglide', 'RedisDesktopManager', array('state' => 'open'));
+$contributors = $client->api('repo')->contributors('uglide', 'RedisDesktopManager');
+
+/**
+ * render contributors
+ */
+$contributorsHTML = renderGithubUsers(
+                        $contributors,
+                        $renderedContributors
+                    ) .
+                    renderGithubUsers(
+                        extractUsersFromGithubIssues($openedIssues),
+                        $renderedContributors
+                    ) .
+                    renderGithubUsers(
+                        extractUsersFromGithubIssues($closedIssues),
+                        $renderedContributors
+                    );
 
 return <<< HTML
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -164,6 +225,13 @@ return <<< HTML
             <h4>Credits</h4>
             Redis Desktop Manager would not be possible without great open-source projects:
             Redis, Qt, Qxt, libssh2, jsoncpp
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+            <h4>Contributors</h4>
+            {$contributorsHTML}
         </div>
       </div>
 
