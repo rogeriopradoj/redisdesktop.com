@@ -19,7 +19,7 @@
  */
 function renderGithubUsers(Array $users)
 {
-    $html = '';
+    $html = '<div class="row contributors-row">';
 
     $alreadyRenderedUsers = array();
 
@@ -30,7 +30,7 @@ function renderGithubUsers(Array $users)
         }
     }
 
-    return $html;
+    return $html . '</div>';
 }
 
 $links = json_encode($rdmData['download']);
