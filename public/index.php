@@ -36,5 +36,6 @@ $app->get('/', require APP_PATH . '/controllers/index.php');
 $app->get('/download', require APP_PATH . '/controllers/download.php');
 $app->get('/contribute', require APP_PATH . '/controllers/contribute.php');
 $app->get('/get-update', require APP_PATH . '/controllers/get-update.php');
+$app->get('/community', require APP_PATH . '/controllers/community.php');
 
 $app->run();

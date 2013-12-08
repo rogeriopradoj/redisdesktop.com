@@ -279,7 +279,7 @@ a.contributors-link {
 
 
 iframe.twitter-follow-button {
-    max-width: 170px!important;
+    max-width: 175px!important;
 }
 iframe.twitter-share-button {
     max-width: 110px!important;
@@ -287,4 +287,11 @@ iframe.twitter-share-button {
 
 #disqus_thread {
     margin-top: 25px;
+}
+div.g-plus {
+    display: inline-block;
+}
+div.g-plus + div {
+    display: inline-block;
+    vertical-align: top!important;
 }

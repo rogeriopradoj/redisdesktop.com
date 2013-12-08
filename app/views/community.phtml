@@ -1,0 +1,45 @@
+<?php
+/**
+ * todo: description
+ *
+ * @author Igor Malinovskiy <glide.name>
+ * @file community.phtml
+ * @date: 09.12.13
+ */
+
+return <<< HTML
+    <div class="page-header">
+      <h1>Community</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+
+        <h4 style="margin-bottom: 50px;">Join to <a href="http://tinyurl.com/o44bk5g"><span class="label label-warning">Public Skype Chat</span></a></h4>
+
+        <h4>Follow on <a href="https://twitter.com/RedisDesktop"><span class="label label-info">Twitter</span></a></h4>
+        <a class="twitter-timeline"  href="https://twitter.com/RedisDesktop"  data-widget-id="409813289523109888">Tweets by @RedisDesktop</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+        </div>
+
+        <div class="col-md-6">
+
+        <h4>Join to <a href="https://plus.google.com/communities/118200576361490138386"><span class="label label-success">Community on Google+</span></a></h4>
+        <!-- Place this tag where you want the widget to render. -->
+        <div class="g-community" data-width="400" data-href="https://plus.google.com/communities/118200576361490138386" data-theme="dark" data-showtagline="false"></div>
+
+        <!-- Place this tag after the last widget tag. -->
+        <script type="text/javascript">
+        (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/platform.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+        </script>
+
+        </div>
+    </div>
+
+
+HTML;
