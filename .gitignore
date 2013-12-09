@@ -2,3 +2,5 @@
 vendor/*
 rdm.json
 composer.phar
+app/cache/*
+app/data/crash*
