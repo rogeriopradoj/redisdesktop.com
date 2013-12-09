@@ -7,8 +7,6 @@
  * @date: 27.11.13
  */
 
-require APP_PATH.'/../vendor/predis/predis/autoload.php';
-
 return function () use ($rdmData) {
 
     if (@version_compare($_GET['version'], $rdmData['version']) == -1) {
