@@ -37,6 +37,11 @@ return function (Request $request) use ($rdmData) {
         return 'error';
     }
 
+    // if old version crashed - don't create issue
+    if (@version_compare($version, $rdmData['version']) == -1) {
+        return 'https://github.com/uglide/RedisDesktopManager/releases';
+    }
+
     $client = new Github\Client();
     $client->authenticate($rdmData['githubAuth'], '', Github\Client::AUTH_URL_TOKEN);
     $issueInfo = $client->api('issue')->create(
