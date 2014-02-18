@@ -33,14 +33,16 @@ function getAllContributors() {
     $contributors = $client->api('repo')->contributors('uglide', 'RedisDesktopManager');
     $contributorsToSite = $client->api('repo')->contributors('RedisDesktop', 'redisdesktop.com');
 
+    $issuesApi = $client->api('issue');
+    $paginator  = new Github\ResultPager($client);
+
     $closedIssuesCreators = extractUsersFromGithubIssues(
-        $client->api('issue')->all('uglide', 'RedisDesktopManager', array('state' => 'closed'))
+        $paginator->fetchAll($issuesApi, 'all', array('uglide', 'RedisDesktopManager', array('state' => 'closed')))
     );
 
     $openedIssuesCreators = extractUsersFromGithubIssues(
-        $client->api('issue')->all('uglide', 'RedisDesktopManager', array('state' => 'open'))
+        $paginator->fetchAll($issuesApi, 'all', array('uglide', 'RedisDesktopManager', array('state' => 'open')))
     );
-
 
     return array_merge(
             $contributors,
