@@ -12,6 +12,20 @@ $baseName = function ($path) {
     return basename($path);
 };
 
+function renderUnstableBuilds($builds) {
+    $html = count($builds) == 0 ? "No builds" : "";
+
+    foreach ($builds as $build) {
+        $html .= <<< HTML
+<div class="row list-group-item"><a href="/builds/{$build}">{$build}</a></div>
+HTML;
+
+    }
+    return $html;
+}
+
+$unstableBuilds = renderUnstableBuilds($builds);
+
 return <<< HTML
     <div class="page-header">
       <h1>Download Redis Desktop Manager <small>version&nbsp;{$rdmData["version"]}</small></h1>
@@ -27,7 +41,7 @@ return <<< HTML
                     <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["ubu"]}">
                         Download package
                     </a>
-                    <p><b>Supported Ubuntu versions:</b> 12, 13</p>
+                    <p><b>Supported Ubuntu versions:</b> 12.0X LTS, 13.1X, 14.0X LTS</p>
                 </div>
             </div>
         </div>
@@ -40,7 +54,7 @@ return <<< HTML
                     <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["debi"]}">
                         Download package
                     </a>
-                    <p><b>Supported Debian versions:</b> 7</p>
+                    <p><b>Supported Debian versions:</b> 7.5</p>
                 </div>
             </div>
         </div>
@@ -55,7 +69,7 @@ return <<< HTML
                     <a class="btn btn-primary btn-large pull-right" rel="nofollow"  href="{$rdmData["download"]["windows"]}">
                         Download Installer
                     </a>
-                    <p><b>Supported Windows versions:</b>  <br />  XP, Vista, 7, 8, 8.1 </p>
+                    <p><b>Supported Windows versions:</b>  <br /> Vista, 7, 8, 8.1 </p>
                 </div>
             </div>
         </div>
@@ -71,6 +85,14 @@ return <<< HTML
                 <p><b>Supported Mac OS X versions:</b> <br /> 10.9</p>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3> Nightly Builds </h3> <span>These builds are for testing purposes only</span>
+        </div>
+        <div class="panel-body list-group">
+        {$unstableBuilds}
         </div>
     </div>
     <div class="panel panel-default">

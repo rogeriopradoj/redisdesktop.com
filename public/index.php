@@ -8,6 +8,7 @@
  */
 
 define("APP_PATH",   realpath(__DIR__ . '/../app'));
+define("PUBLIC_PATH",   realpath(__DIR__ . '/../public'));
 
 if (!file_exists(APP_PATH . '/data/rdm.json')) {
     exit('Create application settings file: <code> cp /app/data/rdm.sample.json /app/data/rdm.json</code>');
