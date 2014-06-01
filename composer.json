@@ -1,7 +1,8 @@
 {
     "require": {
-        "silex/silex":          "1.*",
-        "knplabs/github-api":   "1.*",
-        "predis/predis":        "0.8.*"
+        "silex/silex":                  "1.*",
+        "knplabs/github-api":           "1.1.5",
+        "predis/predis":                "0.8.*",
+        "chh/cache-service-provider":   "1.0.*"
     }
 }
