@@ -41,7 +41,7 @@ $links = json_encode($rdmData['download']);
 $contributorsHTML = renderGithubUsers($allContributors);
 
 return <<< HTML
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/js/jquery.js"></script>
     <script type="text/javascript">
         $(function() {
             var links = {$links};

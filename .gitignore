@@ -3,3 +3,4 @@ app/data/crashReports/*.dmp
 vendor/*
 app/data/rdm.json
 composer.phar
+app/cache/*/*
