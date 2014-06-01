@@ -60,8 +60,15 @@ return function () use ($rdmData, $app) {
     if ($app['cache']->contains('allContributors')) {
         $allContributors = $app['cache']->fetch('allContributors');
     } else {
-        $allContributors = getAllContributors();
-        $app['cache']->save('allContributors', $allContributors, 1000);
+
+	try {	
+
+        	$allContributors = getAllContributors();
+	        $app['cache']->save('allContributors', $allContributors, 100000);
+
+	} catch (Exception $e) {
+ 		$allContributors = array();
+	}
     }
 
     $content = require APP_PATH . '/views/main.phtml';

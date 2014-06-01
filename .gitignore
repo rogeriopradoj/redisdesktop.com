@@ -1,6 +1,5 @@
 .idea/*
+app/data/crashReports/*.dmp
 vendor/*
-rdm.json
+app/data/rdm.json
 composer.phar
-app/cache/*
-app/data/crash*

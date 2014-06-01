@@ -7,7 +7,5 @@
         "ubu"     : "",
         "osx"     : ""
     },
-    "debug": false,
-    "crashReportsDir" : "data/crashReports",
-    "githubAuth" : ""
+    "debug": false
 }
