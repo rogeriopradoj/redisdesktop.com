@@ -20,11 +20,11 @@ return function (Request $request) use ($rdmData) {
     }
 
     $currDateTime = date("d-m-Y_G-i");
-    $platform = preg_replace("/[^a-z ]/i", '', $request->request->get('platform', 'unknownPlatform'));
-    $productName = preg_replace("/[^a-z ]/i", '', $request->request->get('product', 'unknownProduct'));
-    $version = preg_replace('/[^0-9\.]/i', '', $request->request->get('version', '0.0.0'));
+    $platform = strtolower(preg_replace("/[^a-z ]/i", '', $request->request->get('platform', 'unknownPlatform')));
+    $productName = strtolower(preg_replace("/[^a-z ]/i", '', $request->request->get('product', 'unknownProduct')));
+    $version = strtolower(preg_replace('/[^0-9\.]/i', '', $request->request->get('version', '0.0.0')));
 
-    $dumpFileName = "{$productName}_v{$version}_{$currDateTime}_{$platform}.dmp";
+    $dumpFileName = "{$productName}_{$version}_{$platform}_{$currDateTime}.dmp";
 
     $uploadPath = array(
         APP_PATH, $rdmData['crashReportsDir'],
@@ -48,7 +48,8 @@ return function (Request $request) use ($rdmData) {
         'uglide', 'RedisDesktopManager',
         array(
             'title' => "Crash report #{$currDateTime}-" . rand(1, 100000),
-            'body' => "RDM version: {$version} \nPlatform: {$platform} \n Crash dump: {$dumpFileName}"
+            'body' => "RDM version: {$version} \nPlatform: {$platform} \n Crash dump: {$dumpFileName}",
+            'labels' => array("crash-report")
         )
     );
 
@@ -57,6 +58,9 @@ return function (Request $request) use ($rdmData) {
     Predis\Autoloader::register();
     $redis = new Predis\Client($rdmData['db']);
     $redis->sadd("stats:{$currDate}:crashreports", $_SERVER['REMOTE_ADDR']);
+
+    $task = array('minidump' => $dumpFileName, 'issue' => $issueInfo['number']);
+    $redis->sadd("breakpad:unprocessed", json_encode($task));
 
     return $issueInfo['html_url'];
 };
