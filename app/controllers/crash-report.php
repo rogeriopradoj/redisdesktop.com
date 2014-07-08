@@ -22,7 +22,12 @@ return function (Request $request) use ($rdmData) {
     $currDateTime = date("d-m-Y_G-i");
     $platform = strtolower(preg_replace("/[^a-z ]/i", '', $request->request->get('platform', 'unknownPlatform')));
     $productName = strtolower(preg_replace("/[^a-z ]/i", '', $request->request->get('product', 'unknownProduct')));
-    $version = strtolower(preg_replace('/[^0-9\.]/i', '', $request->request->get('version', '0.0.0')));
+    $version = strtolower(preg_replace('/[^0-9\.\-a-z]/i', '', $request->request->get('version', '0.0.0')));
+
+    // if old version crashed - don't create issue
+    if (@version_compare($version, '0.7.7-dev' /*$rdmData['version']*/) == -1) {
+        return 'https://github.com/uglide/RedisDesktopManager/releases';
+    }
 
     $dumpFileName = "{$productName}_{$version}_{$platform}_{$currDateTime}.dmp";
 
@@ -35,11 +40,6 @@ return function (Request $request) use ($rdmData) {
 
     if (!move_uploaded_file($_FILES['upload_file_minidump']['tmp_name'], $dumpName)) {
         return 'error';
-    }
-
-    // if old version crashed - don't create issue
-    if (@version_compare($version, $rdmData['version']) == -1) {
-        return 'https://github.com/uglide/RedisDesktopManager/releases';
     }
 
     $client = new Github\Client();
