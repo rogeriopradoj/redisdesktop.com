@@ -18,6 +18,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 require APP_PATH.'/../vendor/predis/predis/autoload.php';
 
 $rdmData = json_decode(file_get_contents(APP_PATH . '/data/rdm.json'), true);
+$rdmData['updated'] =  date ("F d Y H:i:s.", filemtime("index.php"));
 
 $app = new Silex\Application();
 
