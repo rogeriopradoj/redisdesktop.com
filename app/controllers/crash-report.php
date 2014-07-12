@@ -25,7 +25,7 @@ return function (Request $request) use ($rdmData) {
     $version = strtolower(preg_replace('/[^0-9\.\-a-z]/i', '', $request->request->get('version', '0.0.0')));
 
     // if old version crashed - don't create issue
-    if (@version_compare($version, '0.7.7-dev' /*$rdmData['version']*/) == -1) {
+    if (@version_compare($version, '0.7.7.50' /*$rdmData['version']*/) == -1) {
         return 'https://github.com/uglide/RedisDesktopManager/releases';
     }
 
