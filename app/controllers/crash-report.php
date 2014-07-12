@@ -60,7 +60,7 @@ return function (Request $request) use ($rdmData) {
     $redis->sadd("stats:{$currDate}:crashreports", $_SERVER['REMOTE_ADDR']);
 
     $task = array('minidump' => $dumpFileName, 'issue' => $issueInfo['number']);
-    $redis->sadd("breakpad:unprocessed", json_encode($task));
+    $redis->lpush("breakpad:unprocessed", json_encode($task));
 
     return $issueInfo['html_url'];
 };
