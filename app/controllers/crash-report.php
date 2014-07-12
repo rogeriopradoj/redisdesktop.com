@@ -26,12 +26,12 @@ return function (Request $request) use ($rdmData) {
 
     // if old version crashed - don't create issue
     if (@version_compare($version, '0.7.7.50' /*$rdmData['version']*/) == -1) {
-        return json_decode(
+        return json_encode(
             array(
                 'error' =>  "Please update RedisDesktopManager "
                     . " <a href='https://github.com/uglide/RedisDesktopManager/releases'> "
                     . "https://github.com/uglide/RedisDesktopManager/releases"
-            ), true);
+            ));
     }
 
     $dumpFileName = "{$productName}_{$version}_{$platform}_{$currDateTime}.dmp";
@@ -44,7 +44,7 @@ return function (Request $request) use ($rdmData) {
     $dumpName = implode('/', $uploadPath);
 
     if (!move_uploaded_file($_FILES['upload_file_minidump']['tmp_name'], $dumpName)) {
-        return json_decode(array('error' => 'Invalid minidump'), true);
+        return json_encode(array('error' => 'Invalid minidump'));
     }
 
     $client = new Github\Client();
@@ -67,9 +67,9 @@ return function (Request $request) use ($rdmData) {
     $task = array('minidump' => $dumpFileName, 'issue' => $issueInfo['number']);
     $redis->lpush("breakpad:unprocessed", json_encode($task));
 
-    return json_decode(
+    return json_encode(
         array(
             'ok' => "Thank you! You can provide additional info in issue "
                 . " <a href='{$issueInfo['html_url']}'>{$issueInfo['html_url']}</a>"
-        ), true);
+        ));
 };
